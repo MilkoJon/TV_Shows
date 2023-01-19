@@ -1,5 +1,4 @@
 // --------------SEARCH---------------------
-
 let search = document.querySelector("input");
 let searchResult = document.createElement("div");
 searchResult.className = "searchResult";
@@ -12,23 +11,23 @@ search.addEventListener("keyup", () => {
       // ^^^z
       for (let i = 0; i < 10; i++) {
         let searchItem = document.createElement("a");
-        searchItem.href = "showinfo.html" + "?name" + data[i].show.id;
+        searchItem.href = "showinfo.html" + "?name=" + data[i].show.id;
         searchItem.target = "_blank";
         searchItem.textContent = `${data[i].show.name}`;
         searchResult.append(searchItem);
 
         searchItem.addEventListener("mouseover", () => {
-            searchItem.style.backgroundColor = "grey";
-        })
+          searchItem.style.backgroundColor = "grey";
+        });
 
         searchItem.addEventListener("mouseout", () => {
-            searchItem.style.backgroundColor = "$color2";
-        })
+          searchItem.style.backgroundColor = "#F5F5F5";
+        });
       }
       document.querySelector(".search").append(searchResult);
     });
 });
-// ---------------------addEvenListeneri----------------------
+// ---------------------MAIN CONTETNT----------------------
 
 window.addEventListener("load", () => {
   fetch("http://api.tvmaze.com/shows")
@@ -48,6 +47,15 @@ window.addEventListener("load", () => {
         movie.append(image);
         movie.append(name);
         document.querySelector(".main").append(movie);
+
+        movie.addEventListener("mouseover", () => {
+          movie.style.border = "5px solid #343A40";
+        });
+
+        movie.addEventListener("mouseout", () => {
+          movie.style.border = "5px solid white";
+        });
       }
     });
 });
+
