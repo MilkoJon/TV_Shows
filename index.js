@@ -33,7 +33,7 @@ window.addEventListener("load", () => {
   fetch("http://api.tvmaze.com/shows")
     .then((res) => res.json())
     .then((res) => res.sort((a, b) => b.rating.average - a.rating.average))
-    .then((res) => res.slice(0, 12))
+    .then((res) => res.slice(0, 48))
     .then((res) => {
       for (let i = 0; i < res.length; i++) {
         const movie = document.createElement("a");
